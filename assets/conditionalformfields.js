@@ -59,7 +59,7 @@ import './images/condition.svg'; // load with Webpack for backend use
             });
         }
 
-        for (const [name, value] of formData.entries()) {
+        Array.from(formData.entries()).forEach(([name, value]) => {
             // Array
             if (name.substring(name.length - 2) === '[]') {
                 const key = name.substring(0, name.length - 2);
@@ -72,7 +72,7 @@ import './images/condition.svg'; // load with Webpack for backend use
             } else {
                 data.set(name, value);
             }
-        }
+        });
 
         // Initialize empty values (e.g. no radio option selected)
         Array.from(form.elements).forEach((control) => {
